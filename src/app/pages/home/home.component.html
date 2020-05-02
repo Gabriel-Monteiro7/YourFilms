@@ -1,0 +1,63 @@
+<navbar (valueOption)="onOption($event)" visible="true"></navbar>
+<div class="home" (window:scroll)="loadFilms($event)">
+  <header class="header" [ngStyle]="{
+    backgroundImage:filmeHeader?.backdrop_path
+  }">
+    <div class="container">
+      <div class="container-left">
+        <h1>{{filmeHeader?.title}}</h1>
+        <div class="flex-box">
+          <span class="genero" *ngFor="let genre of filmeHeader?.genre_ids">{{genre.name}}</span>
+        </div>
+        <button title="Veja o trailer" *ngIf="filmeHeader?.video !== null" class="trailer" (click)="trailer = !trailer">
+          Veja o Trailer <i class="far fa-play-circle"></i>
+        </button>
+        <div class="data-lancamento">
+          Premieres date
+          <span>{{filmeHeader?.release_date || filmeHeader?.first_air_date | date}}({{filmeHeader?.original_language | uppercase}})</span>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="container container-filmes">
+    <div class="lista-categoria">
+      <ul class="categoria">
+        <li title="Vá para a categoria: {{category.title}}" [ngClass]="{
+          'active' : valueSelected.category === category.value
+        }" *ngFor="let category of valueSelected.option.categories" (click)="onCategory(category?.value)">
+          {{category.title}}<span></span></li>
+      </ul>
+      <div
+        title="{{valueSelected.option.value ==='movie' ? 'Procure pelo Filme desejado' : 'Procure pela Série desejada'}}"
+        class="search"> <i class="fas fa-search" *ngIf="inputValue === ''"></i><input type="text"
+          [(ngModel)]="inputValue" name="name" (keyup)="searchMovies($event)" /></div>
+    </div>
+    <div id="lista" class="lista-filmes py-3 px-md-5 px-2" *ngIf="filmes.length === 0 ? false : true">
+      <div class="row">
+        <div class="col-lg-4 col-md-6 col-12 p-sm-2 p-4" *ngFor="let filme of filmes">
+          <div class="card" [routerLink]="['/detail',filme.id]" title="Veja detalhes de {{filme.title_original}}">
+            <img [src]="filme.poster_path" *ngIf="filme.poster_path !== null" class="image"
+              alt='Imagem de {{filme.title}}' />
+            <img *ngIf="filme.poster_path === null" class="image" alt='Imagem de {{filme.title}}' />
+            <div class="informacoes">
+              <p>{{filme.title}}</p>
+              <div class='genre'><span *ngFor="let genre of filme.genre_ids"> {{genre.name+" "}}</span></div>
+              <div class="rank"><i class="fas fa-heart mr-1"></i>{{filme.vote_average}}</div>
+            </div>
+            <span class="triangle"></span>
+          </div>
+        </div>
+      </div>
+      <div class="mais-filmes" *ngIf='this.load !== null'><button>
+          <lottie class="loadButton" value="loadButton.json"></lottie>
+        </button></div>
+
+    </div>
+    <div *ngIf="filmes.length ===0">
+      <lottie class="loadList" value="load.json" *ngIf="notFound "></lottie>
+      <lottie class="loadList" value="load1.json" *ngIf="!notFound"></lottie>
+    </div>
+
+  </div>
+  <trailer-youtube [filmeHeader]="filmeHeader" [trailer]="trailer" (valueTrailer)="onValueTrailer($event)">
+  </trailer-youtube>
