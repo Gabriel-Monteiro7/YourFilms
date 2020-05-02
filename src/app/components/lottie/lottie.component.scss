@@ -1,0 +1,14 @@
+@import "~bootstrap/scss/bootstrap";
+
+.loadList {
+    height: 300px;
+}
+.loadButton {
+    height: 50px !important;
+    width: 50px;
+}
+@include media-breakpoint-down(sm) {
+    .loadList {
+        height: 100px;
+    }
+}
