@@ -84,13 +84,8 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.serviceApi.getMovies().subscribe((filmes) => {
       this.filmes = this.service.setFilme(filmes['results'])
-      console.log(this.filmes);
-
-
     });
     this.serviceApi.getMoviesUpcoming().subscribe((filmes) => {
-      console.log(this.filmeHeader);
-
       this.filmeHeader = this.service.setFilmeHeader(filmes['results'])
     });
 
