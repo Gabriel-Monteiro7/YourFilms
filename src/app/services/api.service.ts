@@ -71,12 +71,12 @@ export class ApiService {
       this.query = "";
     }
     this.query = query
-    return this.http.get<any[]>(`${this.url}search/${this.valueSelected.option.value}?api_key=${this.apiKey}&query=${query}&page=${this.page}&language=pt-b`).pipe(
+    return this.http.get<any[]>(`${this.url}search/${this.valueSelected.option.value}?api_key=${this.apiKey}&query=${query}&page=${this.page}&language=pt-br`).pipe(
       delay(1000), take(1)
     );
   }
   getMoviesUpcoming() {
-    return this.http.get<any[]>(`${this.url}discover/${this.valueSelected.option.value}?api_key=${this.apiKey}&sort_by=popularity.desc&page=${1}&year=${this.currentDate}`).pipe(
+    return this.http.get<any[]>(`${this.url}discover/${this.valueSelected.option.value}?api_key=${this.apiKey}&sort_by=popularity.desc&page=${1}&year=${this.currentDate}&language=pt-br`).pipe(
       delay(1000), take(1)
       // , tap(console.log)
     );
