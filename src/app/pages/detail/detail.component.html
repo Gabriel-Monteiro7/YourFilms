@@ -1,0 +1,146 @@
+<div class="detail">
+    <header class="header" [ngStyle]="{
+            backgroundImage:filme?.backdrop_path
+          }" (window:resize)="onChangeWidth($event)">
+        <div class="mask">
+            <div class="mx-lg-5 mx-4 container-left">
+                <div>
+                    <h1>{{filme?.title}}</h1>
+                    <div class="rank">
+                        <div>
+                            <span *ngFor="let star of stars; let i = index">
+                                <i class="far fa-star" [ngClass]="{
+                                      'active' : (filme?.vote_average/2)>i
+                                    }"></i></span>
+
+                        </div>
+                        <p>({{filme?.vote_count || 0}} votos)</p>
+                    </div>
+                    <div class="flex-box">
+                        <div><i class="fas fa-calendar-alt"> </i>
+                            {{filme?.release_date | date | uppercase}}({{filme?.original_language | uppercase}})
+                        </div>
+                        <div class="inf"><i class="fas fa-tag"> </i>
+                            <p *ngFor="let genre of filme?.genres;index as i">
+                                {{i<4 ? (genre?.name | uppercase)  : ''}}{{i>2 || filme?.genres?.length===i+1  ? '' :','}}
+                            </p>
+                        </div>
+                        <div><i class="far fa-clock"></i>
+                            <p>{{filme?.runtime}} MIN</p>
+                        </div>
+                    </div>
+                    <span class="genero" *ngFor="let genre of filme?.genre_ids">{{genre.name}}</span>
+                </div>
+                <button title="Veja o trailer" *ngIf="filme?.video !== null" class="trailer" (click)="trailer = !trailer">
+                    <i class="fas fa-film"></i>
+                    <p>Veja o Trailer</p>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class=" body px-lg-5 px-4">
+        <div class="container-inf ">
+            <div class=" card-filme poster">
+                <div class="image" [ngStyle]="{
+                    backgroundImage:'url('+filme?.poster_path+')'}"></div>
+            </div>
+            <div class="container-right first w-100">
+                <span class="synopsis">Sinopses</span>
+                <p class="description">{{filme?.overview}}</p>
+                <div class=" crew">
+                    <div id="carouselExampleControls" class="carousel w-100">
+                        <div class="carousel-inner row m-0">
+                            <div class="carousel-item col-xl-3 col-sm-4 col-6 m-0 px-sm-1"
+                                *ngFor="let crew of producao?.crew;index as indice" [ngClass]="{
+                                'active' : indice<=carousel?.crew.value+carousel?.crew.step && indice>=carousel?.crew.value
+                              }">
+                                <div><span class="label text-truncate">{{crew?.job}}:</span>
+                                    <div class="avatar ">
+                                        <div class="image "
+                                            [ngStyle]="{
+                                        backgroundImage:crew?.profile_path !== null && 'url('+producao?.urlOriginal+'/'+crew?.profile_path+')'}">
+                                        </div>
+                                        <p class="text-truncate m-0">{{crew?.name}}</p>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div *ngIf="producao?.crew?.length>0">
+                            <span class="carousel-control-prev" (click)="next(-1,'crew')">
+                                <i class="fas fa-angle-left"></i>
+                            </span>
+                            <span class="carousel-control-next" (click)="next(1,'crew')">
+                                <i class="fas fa-angle-right"></i>
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="container-inf">
+            <div class="cast ">
+                <div class="carousel w-100 my-3">
+                    <span class="carousel-control-prev" (click)="next(-1,'cast')">
+                        <i class="fas fa-angle-left"></i>
+                    </span>
+                    <div class="carousel-inner row m-0">
+                        <span class="elenco">Elenco Geral</span>
+                        <div class="carousel-item m-0" *ngFor="let cast of producao?.cast;index as indice" [ngClass]="{
+                            'active' : indice<=carousel?.cast.value+carousel?.cast.step&& indice>=carousel?.cast.value
+                          }">
+                            <div class="avatar">
+                                <div class="image "
+                                    [ngStyle]="{
+                            backgroundImage:cast?.profile_path !== null && 'url('+producao?.urlOriginal+'/'+cast?.profile_path+')'}">
+                                </div>
+                                <div><span class="label text-truncate">{{cast?.name}}</span>{{cast?.character}}
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <span class="carousel-control-next" (click)="next(1,'cast')">
+                        <i class="fas fa-angle-right"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="container-right w-100" *ngIf="recomendados?.length>0">
+                <div class="carousel w-100 filmes-semelhantes">
+                    <div class="container-button d-flex flex-row justify-content-between px-md-2 px-0">
+                        <span class="synopsis">Filmes Recomendados</span>
+                        <div>
+                            <span class="carousel-control-prev" (click)="next(-1,'recomendados')">
+                                <i class="fas fa-angle-left"></i>
+                            </span>
+                            <span class="carousel-control-next" (click)="next(1,'recomendados')">
+                                <i class="fas fa-angle-right"></i>
+                            </span>
+                        </div>
+
+                    </div>
+                    <div class="carousel-inner row m-0">
+                        <div title="Veja detalhes de {{recomendado.title_original}}" class="carousel-item col-xl-4  col-lg-6 col-12 m-0 px-md-2 px-0"
+                            *ngFor="let recomendado of recomendados;index as indice" [ngClass]="{
+                            'active' : indice<=carousel?.recomendados.value+carousel?.recomendados.step && indice>=carousel?.recomendados.value
+                          }">
+                            <div class="card-filme " [routerLink]="['/detail',recomendado.id]">
+                                <div class="image" [ngStyle]="{
+                                backgroundImage: 'url('+recomendado.poster_path+')'}">
+                                </div>
+                                <div class="title">
+                                    <p>{{recomendado.title}} </p> {{recomendado.release_date |date}}
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <trailer-youtube [filmeHeader]="filme" [trailer]="trailer" (valueTrailer)="onValueTrailer($event)">
+        </trailer-youtube>
