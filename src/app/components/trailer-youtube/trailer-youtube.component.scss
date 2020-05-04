@@ -35,16 +35,16 @@
     background: #00000000;
     height: 84%;
     margin: auto;
-    width: 74%;
+    width: 74vw;
   }
 }
 @include media-breakpoint-down(sm) {
   .trailer-youtube {
     .header-trailer {
-      width: 100%;
+      width: 100vw;
     }
     .container-trailer {
-      width: 100%;
+      width: 100vw;
       height: 36%;
     }
     .header-trailer {
@@ -55,43 +55,43 @@
 @include media-breakpoint-up(xs) {
   .trailer-youtube {
     .header-trailer {
-      width: 70%;
+      width: 70vw;
     }
     .container-trailer {
       height: 90%;
-      width: 70%;
+      width: 70vw;
     }
   }
 }
 @include media-breakpoint-down(lg) {
   .trailer-youtube {
     .header-trailer {
-      width: 74%;
+      width: 74vw;
     }
     .container-trailer {
       height: 84%;
-      width: 74%;
+      width: 74vw;
     }
   }
 }
 @include media-breakpoint-down(md) {
   .trailer-youtube {
     .header-trailer {
-      width: 95%;
+      width: 95vw;
     }
     .container-trailer {
       height: 81%;
-      width: 95%;
+      width: 95vw;
     }
   }
 }
 @include media-breakpoint-down(sm) {
   .trailer-youtube {
     .header-trailer {
-      width: 100%;
+      width: 100vw;
     }
     .container-trailer {
-      width: 100%;
+      width: 100vw;
       height: 36%;
     }
     .header-trailer {
