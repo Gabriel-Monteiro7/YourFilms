@@ -1,2 +1,9 @@
-<div title="Vá para o topo" [hidden]="positionTop<100" class="button" (window:scroll)="setPosition($event)" (click)="goTop()"><i
-        class="fas fa-chevron-up"></i></div>
+<div
+  title="Vá para o topo"
+  [hidden]="positionTop < 100"
+  class="button"
+  (window:scroll)="setPosition($event)"
+  (click)="goTop()"
+>
+  <i class="fas fa-chevron-up"></i>
+</div>
