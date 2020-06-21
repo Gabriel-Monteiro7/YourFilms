@@ -1,6 +1,5 @@
-![Image](https://github.com/Gabriel-Monteiro7/YourFilms/blob/master/.github/image.png)
 
-# [](<[https://github.com/Gabriel-Monteiro7/YourFilms](https://github.com/Gabriel-Monteiro7/YourFilms)>>):cinema::a:Your Films Web
+# [](<[https://github.com/Gabriel-Monteiro7/YourFilms](https://github.com/Gabriel-Monteiro7/YourFilms)>):cinema::a:Your Films Web
 
 > _link da aplicação web:_ [YourFilms](https://yourfilms.netlify.app/)
 >
@@ -8,7 +7,7 @@
 
 YourFilms: Seu catálogo de Filmes e Séries online.
 
-## [](<[https://github.com/Gabriel-Monteiro7](https://github.com/Gabriel-Monteiro7)#Visualização>>)Visualização
+## [](<[https://github.com/Gabriel-Monteiro7](https://github.com/Gabriel-Monteiro7)#Visualização>)Visualização
 
 ### Home
 
@@ -22,7 +21,7 @@ YourFilms: Seu catálogo de Filmes e Séries online.
 
 ![Descrição](https://github.com/Gabriel-Monteiro7/YourFilms/blob/master/.github/trailer.png)
 
-## [](<[https://github.com/Gabriel-Monteiro7/YourFilms](https://github.com/Gabriel-Monteiro7/YourFilms)#tecnologias>>)Tecnologias utilizadas
+## [](<[https://github.com/Gabriel-Monteiro7/YourFilms](https://github.com/Gabriel-Monteiro7/YourFilms)#tecnologias>)Tecnologias utilizadas
 
 Para o desenvolvimento do projeto foi utilizada as seguintes tecnologias:
 
@@ -55,6 +54,6 @@ Depois siga esses passos
 
 ```
 
-## [](<[https://github.com/Gabriel-Monteiro7/YourFilms](https://github.com/Gabriel-Monteiro7/YourFilms)#autor>>):man_technologist: Autor
+## [](<[https://github.com/Gabriel-Monteiro7/YourFilms](https://github.com/Gabriel-Monteiro7/YourFilms)#autor>):man_technologist: Autor
 
 - **Gabriel Monteiro** - [GitHub](https://github.com/Gabriel-Monteiro7) - Email: [gabrielmont713@gmail.com](mailto:gabrielmont713@gmail.com)
