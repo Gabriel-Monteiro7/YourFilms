@@ -1,5 +1,5 @@
 
-# [](<[https://github.com/Gabriel-Monteiro7/YourFilms](https://github.com/Gabriel-Monteiro7/YourFilms)>):cinema::a:Your Films Web
+# [](<[https://github.com/Gabriel-Monteiro7/YourFilms](https://github.com/Gabriel-Monteiro7/YourFilms)>)Your Films / Web
 
 > _link da aplicação web:_ [YourFilms](https://yourfilms.netlify.app/)
 >
